@@ -1,0 +1,57 @@
+import time
+Calculadora = True
+
+while Calculadora == True:
+        
+    lista_taxas = [4.60,6.10,7.60,9.10,10.60,12.10,13.60,15.10,16.60,18.10,19.60,21.10]
+    number_1 = float(input('Informe valor do produto: '))
+    number_2 = float(input('informe o lucro esperado com a venda: '))
+    porcent = int(-100)
+    lucro = (porcent + number_2) / 100
+    lucro_total = lucro * -1
+    preco_venda = float (number_1 / lucro_total)
+    avista_credito = (((lista_taxas[0]) / 100) * preco_venda) + preco_venda
+    preco_avista_credito = (avista_credito)
+    x2_credito = (((lista_taxas[1]) / 100) * preco_venda) + preco_venda
+    x3_credito = (((lista_taxas[2]) / 100) * preco_venda) + preco_venda
+    x4_credito = (((lista_taxas[3]) / 100) * preco_venda) + preco_venda
+    x5_credito = (((lista_taxas[4]) / 100) * preco_venda) + preco_venda
+    x6_credito = (((lista_taxas[5]) / 100) * preco_venda) + preco_venda
+    x7_credito = (((lista_taxas[6]) / 100) * preco_venda) + preco_venda
+    x8_credito = (((lista_taxas[7]) / 100) * preco_venda) + preco_venda
+    x9_credito = (((lista_taxas[8]) / 100) * preco_venda) + preco_venda
+    x10_credito = (((lista_taxas[9]) / 100) * preco_venda) + preco_venda
+    x11_credito = (((lista_taxas[10]) / 100) * preco_venda) + preco_venda
+    x12_credito = (((lista_taxas[11]) / 100) * preco_venda) + preco_venda
+
+        
+        
+    '''print('{:.2f} + {:.2f} = '.format(number_1, number_2))'''
+    print (lucro_total)
+    print('O preço de venda final para o cliente é de:R${:.2f}'.format(preco_venda))
+    time.sleep(0.5)
+    print (' Á vista, no débito:R${:.2f}'.format(preco_venda))
+    time.sleep(0.5)
+    print (' Á vista, no crédito:R${:.2f}'.format(avista_credito))
+    time.sleep(0.5)
+    print (' 2x no crédito:R${:.2f} - 2x R${:.2f}'.format(x2_credito, x2_credito/2))
+    time.sleep(0.5)
+    print (' 3x no crédito:R${:.2f} - 3x R${:.2f}'.format(x3_credito, x3_credito/3))
+    time.sleep(0.5)
+    print (' 4x no crédito:R${:.2f} - 4x R${:.2f}'.format(x4_credito, x4_credito/4))
+    time.sleep(0.5)
+    print (' 5x no crédito:R${:.2f} - 5x R${:.2f}'.format(x5_credito, x5_credito/5))
+    time.sleep(0.5)
+    print (' 6x no crédito:R${:.2f} - 6x R${:.2f}'.format(x6_credito, x6_credito/6))
+    time.sleep(0.5)
+    print (' 7x no crédito:R${:.2f} - 7x R${:.2f}'.format(x7_credito, x7_credito/7))
+    time.sleep(0.5)
+    print (' 8x no crédito:R${:.2f} - 8x R${:.2f}'.format(x8_credito, x8_credito/8))
+    time.sleep(0.5)
+    print (' 9x no crédito:R${:.2f} - 9x R${:.2f}'.format(x9_credito, x9_credito/9))
+    time.sleep(0.5)
+    print ('10x no crédito:R${:.2f} - 10x R${:.2f}'.format(x10_credito, x10_credito/10))
+    time.sleep(0.5)
+    print ('11x no crédito:R${:.2f} - 11x R${:.2f}'.format(x11_credito, x11_credito/11))
+    time.sleep(0.5)
+    print ('12x no crédito:R${:.2f} - 12x R${:.2f}'.format(x12_credito, x12_credito/12))
