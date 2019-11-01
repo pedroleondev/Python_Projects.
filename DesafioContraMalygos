@@ -1,0 +1,90 @@
+from random import randint
+"""randint vai fazer com quer informe o menor e maior valor e, seja nesta faixa o valor_randomico"""
+game_running = True
+game_results = []
+
+def calc_monster_attack():
+    return randint(monster['attack_min'], monster['attack_max'])
+
+def game_ends(winner_name):
+    print(f'{winner_name} Won The Game !')
+
+while game_running == True:
+
+    counter = 0
+    new_round = True
+    player = {'name': 'Him', 'attack': 13, 'heal': 18, 'health': 100}
+    monster = {'name': 'Malygos', 'attack_min': 10, 'attack_max': 20, 'health': 100}
+
+    print('-'*12)
+    print('Enter Player Name')
+    player['name'] = input()
+
+    print(player['name'] + ' has ' + str(player['health']) + ' health')
+    print(monster['name'] + ' has ' + str(monster['health']) + ' health')
+    while new_round == True:
+
+        counter += 1
+        player_won = False
+        monster_won = False
+
+        print('-'*12)
+        print('Selecione uma ação:')
+        print('1) Atacar')
+        print('2) Curar')
+        print('3) Fechar jogo')
+        print('4) Mostrar Ranking')
+
+        player_choice = input()
+
+
+        if player_choice == '1':
+            monster['health'] = monster['health'] - player['attack']
+            if monster['health'] <= 0:
+                player_won = True
+            else:
+                player['health'] = player['health'] - calc_monster_attack()
+            if player['health'] <= 0:
+                monster_won = True
+            
+        elif player_choice == '2':
+            player['health'] = player['health'] + player['heal']
+
+            player['health'] = player['health'] - calc_monster_attack()
+            if player['health'] <= 0:
+                monster_won = True
+
+            print('Heal player')
+        elif player_choice == '3':
+            new_round = False
+            game_running = False
+
+        elif player_choice == '4':
+            for score in game_results:
+                print(score)
+
+        else:
+            print('Invalid Input')
+
+        if player_won ==  False and monster_won == False:
+            print(player['name'] + ' has ' + str(player['health']) + ' left')
+            print(monster['name'] + ' has ' + str(monster['health']) + ' left')
+            """Aqui é a lógica de que, se ambos ainda estão vivos, realiza-se esta função de mostrar os lifes."""
+
+        elif player_won:
+            game_ends(player['name'])
+            round_result = {'name': player['name'], 'health': player['health'], 'rounds': counter}
+            game_results.append(round_result)
+            print(game_results)
+            new_round = False
+
+        elif monster_won:
+            game_ends(monster['name'])
+            round_result = {'name': monster['name'], 'health': monster['health'], 'rounds': counter}
+            game_results.append(round_result)
+            print(game_results)
+            new_round = False
+
+        if player_won == True or monster_won == True:
+            new_round = False
+
